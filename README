@@ -1,0 +1,5 @@
+To use this repo, copy contents and run "./start <app name>"
+
+e.g. "./start bunny_site"
+
+Then you can use "./deploy (test|prod)" to deploy the app.

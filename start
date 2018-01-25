@@ -1,0 +1,6 @@
+#!/bin/bash
+
+SITE_NAME=$1
+echo "Populating repo for $SITE_NAME"
+
+sed -i -e "s/TO_BE_CONFIGURED:SITE_NAME/$SITE_NAME/" site/passenger_wsgi.py
