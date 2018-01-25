@@ -4,7 +4,7 @@ SITE_NAME=$1
 URL=$2
 echo "Populating repo for $SITE_NAME (url: $URL)"
 
-sed -i -e "s/TO_BE_CONFIGURED:SITE_NAME/$SITE_NAME/" site/passenger_wsgi.py
-sed -i -e "s/TO_BE_CONFIGURED:URL/$URL/" deploy.py
+sed -i "" -e "s/TO_BE_CONFIGURED:SITE_NAME/$SITE_NAME/" site/passenger_wsgi.py
+sed -i "" -e "s/TO_BE_CONFIGURED:URL/$URL/" deploy
 
 django-admin startproject $SITE_NAME site
