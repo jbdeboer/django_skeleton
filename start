@@ -8,3 +8,18 @@ sed -i "" -e "s/TO_BE_CONFIGURED:SITE_NAME/$SITE_NAME/" site/passenger_wsgi.py
 sed -i "" -e "s/TO_BE_CONFIGURED:URL/$URL/" deploy
 
 django-admin startproject $SITE_NAME site
+
+# Setup static files for Passenger to work.
+
+cat >>site/$SITE_NAME/settings.py <<END_OF_BLOCK
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.9/howto/static-files/
+
+STATICFILES_DIRS = [
+#    Uncomment for Bower suppoer.
+#    os.path.join(BASE_DIR, "../bower_components"),
+]
+
+STATIC_URL = '/s/'
+STATIC_ROOT = 'public/s'
+END_OF_BLOCK
