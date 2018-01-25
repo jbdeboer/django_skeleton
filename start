@@ -3,7 +3,7 @@
 SITE_NAME=$1
 URL=$2
 
-if [[ -z "$SITE_NAME" -o -z "$URL"]] then
+if [ -z "$SITE_NAME" -o -z "$URL"] then
     echo "Usage: ./start <site_name> <url>"
     exit 1
 fi
