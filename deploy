@@ -2,10 +2,10 @@
 
 URL="test.TO_BE_CONFIGURED:URL"
 
-if [[ $1 -eq "prod" ]]; then
+if [[ "$1" == "prod" ]]; then
     URL="TO_BE_CONFIGURED:URL"
     echo "Pushing to prod"
-elif [[ $1 -eq "test" ]]; then
+elif [[ "$1" == "test" ]]; then
     URL="test.TO_BE_CONFIGURED:URL"
     echo "Pushing to test"
 else
