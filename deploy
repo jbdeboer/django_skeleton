@@ -1,0 +1,19 @@
+#!/bin/sh
+
+URL="test.TO_BE_CONFIGURED:URL"
+
+if [[ $1 -eq "prod" ]]; then
+    URL="TO_BE_CONFIGURED:URL"
+    echo "Pushing to prod"
+elif [[ $1 -eq "test" ]]; then
+    URL="test.TO_BE_CONFIGURED:URL"
+    echo "Pushing to test"
+else
+    echo "Usage: deploy-django (prod|test)"
+    exit 1
+fi
+
+(cd site/; python3 manage.py collectstatic --noinput)
+mkdir -p site/tmp
+date >site/tmp/restart.txt
+rsync -r site/* infiniteunit@infiniteunit.com:/home/infiniteunit/$URL
